@@ -1,0 +1,25 @@
+/* Structure */
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 18px;
+    width: 70%;
+  }
+
+  .container {
+      padding: 35px;
+  }
+
+  th.mat-sort-header-sorted {
+    color: black;
+  }
+
+  .header-container{
+    margin-bottom: 25px;
+  }
+
+  .table-container {
+    padding: 0px;
+  }

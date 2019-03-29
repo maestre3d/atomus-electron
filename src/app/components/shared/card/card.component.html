@@ -1,0 +1,57 @@
+<div class="container animated fadeIn  delay-1s"
+fxLayout="row wrap" 
+fxLayout.lt-lg="column" 
+fxLayoutGap="24px" 
+fxLayoutAlign="flex-start">
+<!--<ol>
+    <li>
+      <mat-form-field>
+        <input matInput [(ngModel)]="name" placeholder="What's your name?">
+      </mat-form-field>
+    </li>
+    <li>
+      <button mat-raised-button (click)="openDialog()">Pick one</button>
+    </li>
+    <li *ngIf="animal">
+      You chose: <i>{{animal}}</i>
+    </li>
+  </ol>-->
+
+  <ng-container *ngFor="let item of items">
+    <mat-card class="example-card"
+    fxFlex.lt-md="0 1 calc(50% - 32px)"
+    fxFlex.lt-sm="100%"
+    >
+
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"><img [src]="item.user.image | noimage" alt="" height="48" width="48"></div>
+        <mat-card-title><b>{{ item.practice.name }}</b></mat-card-title>
+        <mat-card-subtitle>Fecha de expiración: {{item.exp * 1000 | date: 'MMM d, y. h:mm a'}}</mat-card-subtitle>
+  
+      </mat-card-header>
+      
+      <mat-card-content>
+        <div fxLayout="row" fxLayoutGap="24px">
+          <div fxLayout="column">
+            <p><b>Alumno</b></p>
+            <mat-chip color="accent" selected>{{item.user.name}} {{item.user.surname}}</mat-chip>
+          </div>
+          <div fxLayout="column">
+            <p><b>Status</b></p>
+            <mat-chip color="primary" selected>{{item.status}}</mat-chip>
+          </div>
+        </div>
+        <h4>Material</h4>
+        <mat-chip-list aria-label="Materials">
+          <mat-chip *ngFor="let mat of item.items">{{ mat.material.name }}</mat-chip>
+        </mat-chip-list>
+      </mat-card-content>
+      <mat-divider></mat-divider>
+      <mat-card-actions>
+        <button mat-raised-button color="accent" (click)="openDialog(item, isExp)"><mat-icon>visibility</mat-icon>VER</button>
+        <button mat-raised-button *ngIf="isExp === false" (click)="openSnackBar(item.practice.name, item.user.name, item._id, 'UNDO' )"><mat-icon>done</mat-icon>CONFIRMAR</button>
+        <button mat-icon-button *ngIf="isExp === false" (click)="openDeleteBar(item._id, item.practice.name, item.user.name)" color="warn"><mat-icon>delete_forever</mat-icon></button>
+      </mat-card-actions>
+    </mat-card>
+  </ng-container>
+</div>

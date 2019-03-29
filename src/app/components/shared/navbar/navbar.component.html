@@ -1,0 +1,36 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="!(isHandset$ | async)">
+    <mat-toolbar fxLayout="column" style="margin-bottom: 70px;">
+      <img src="assets/img/generic-user.jpg" alt="" height="64" style="border-radius: 100px;">
+      <h1 style="color: #fff;">Juan R.</h1>
+    </mat-toolbar>
+    <mat-divider [vertical]="false"></mat-divider>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/home" routerLinkActive="active" aria-label="Home" ><mat-icon matSuffix>home</mat-icon>Home</a>
+      <a mat-list-item routerLink="/search" routerLinkActive="active" ><mat-icon matSuffix>youtube_searched_for</mat-icon> Buscar</a>
+      <mat-divider [vertical]="false"></mat-divider>
+      <a mat-list-item routerLink="/warehouse" routerLinkActive="active"><mat-icon matSuffix>store</mat-icon> Almacén</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar class="titlebar mat-elevation-z8">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <div style="display: flex; flex-direction: row; align-items: center;">
+        <a routerLink="/home"><img src="assets/img/navbar_fcq_black.png" alt="" height="72" width="340"></a>
+      </div>
+      <span class="spacer"></span>
+    </mat-toolbar>
+    <ng-content></ng-content>
+    <!-- Add Content Here -->
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,29 @@
+<div class="header animated fadeIn fast">
+  <h1>Últimas órdenes</h1>
+</div>
+<mat-divider></mat-divider>
+
+<app-loading *ngIf="loaded"></app-loading>
+<div *ngIf="newOrders.length === 0" class="animated fadeIn slow not-found"  >
+  <span><mat-icon style="font-size: 42px;">done_all</mat-icon></span>
+  <h1>No hay órdenes</h1>
+  <img src="assets/img/deliver.svg" alt="Not found">
+</div>
+
+<app-card [items] = newOrders [isExp]=false></app-card>
+
+<div class="header animated fadeIn fast">
+  <h1>Historial</h1>
+</div>
+<mat-divider></mat-divider>
+
+<app-loading *ngIf="loaded"></app-loading>
+<div *ngIf="expOrders.length === 0" class="animated fadeIn slow not-found"  >
+  <span><mat-icon style="font-size: 42px;">done_all</mat-icon></span>
+  <h1>No hay órdenes</h1>
+  <img src="assets/img/deliver.svg" alt="Not found">
+</div>
+
+<app-card [items] = expOrders [isExp]=true></app-card>
+
+<!-- {{ 'PAGES.HOME.TITLE' | translate }} -->

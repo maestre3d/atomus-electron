@@ -1,0 +1,32 @@
+<div class="pop-container">
+    <h1 mat-dialog-title>{{data.item.practice.name}}</h1>
+    <div fxLayout="row" fxLayoutGap="12px" fxFlexAlign="baseline" style="font-size: 14px;">
+        <h5>Pedido el</h5>
+        <p>{{data.item.iat * 1000 | date: 'MMM d, y. h:mm a'}}</p>
+        <h5>Expira el</h5>
+        <p>{{data.item.exp * 1000 | date: 'MMM d, y. h:mm a'}}</p>
+    </div>
+    <div mat-dialog-content style="padding-bottom: 25px;">
+        <div fxLayout="row" fxLayoutGap="12px">
+            <div fxLayout="column">
+                <p><b>Alumno</b></p>
+                <mat-chip color="accent" selected>{{data.item.user.name}} {{data.item.user.surname}}</mat-chip>
+            </div>
+            <div fxLayout="column">
+                <p><b>Status</b></p>
+                <mat-chip color="primary" selected>{{data.item.status}}</mat-chip>
+            </div>
+        </div>
+        <h4>Material</h4>
+        <mat-chip-list aria-label="Materials">
+          <mat-chip *ngFor="let mat of data.item.items">{{ mat.material.name }} - {{mat.quantity}}</mat-chip>
+        </mat-chip-list>
+        <!--<mat-form-field>
+            <input matInput [(ngModel)]="data.animal">
+        </mat-form-field>-->
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button color="warn" (click)="onNoClick()">Cancelar</button>
+        <button *ngIf="data.isExpired === false" mat-raised-button [mat-dialog-close]="data.item" cdkFocusInitial><mat-icon>done</mat-icon> CONFIRMAR</button>
+    </div>
+</div>

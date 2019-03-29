@@ -1,0 +1,42 @@
+.header{
+    padding: 20px;
+}
+.container{
+    margin: 1%;
+}
+  
+.example-card{
+    margin: 1%;
+    max-width: 400px;
+}
+.example-header-image {
+background-size: cover;
+}
+
+.example-header-image img {
+    border-radius: 60px;
+}
+
+mat-card-subtitle a{
+    text-decoration: none;
+    color: white;
+}
+
+mat-chip a {
+    text-decoration: none;
+    color: white;
+}
+
+mat-chip:hover{
+    cursor: pointer;
+}
+
+.not-found {
+    display: flex;
+    margin-top: 30px;
+    text-align: center;
+    color: #808080!important;
+    justify-content: center;
+    line-height: 0px;
+    flex-flow: column;
+}

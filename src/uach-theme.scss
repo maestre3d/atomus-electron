@@ -1,0 +1,11 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$uach-primary: mat-palette($mat-purple);
+$uach-accent: mat-palette($mat-pink );
+$uach-warn: mat-palette($mat-red);
+
+$uach-theme: mat-light-theme($uach-primary, $uach-accent, $uach-warn);
+
+@include angular-material-theme($uach-theme);
